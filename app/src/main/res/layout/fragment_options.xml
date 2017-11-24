@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/mode"
+        android:layout_width="@dimen/optionsSize"
+        android:layout_height="@dimen/optionsSize"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/icon_motorcycle"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/auto"
+        app:layout_constraintEnd_toStartOf="@+id/auto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/auto"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/auto"
+        android:layout_width="@dimen/optionsSize"
+        android:layout_height="@dimen/optionsSize"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/icon_auto"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/manual"
+        app:layout_constraintStart_toEndOf="@+id/mode"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/manual"
+        android:layout_width="@dimen/optionsSize"
+        android:layout_height="@dimen/optionsSize"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/icon_manual"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/auto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/auto"
+        app:layout_constraintTop_toTopOf="@+id/auto"/>
+
+</android.support.constraint.ConstraintLayout>
