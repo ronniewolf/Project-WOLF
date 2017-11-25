@@ -34,7 +34,7 @@ import javax.inject.Named;
 import static com.davinci.wolf.utils.Statics.AUTO_RC;
 import static com.davinci.wolf.utils.Statics.MANUAL_RC;
 import static com.davinci.wolf.utils.Statics.MODE_RC;
-
+//Option fragment shown when user clicks on the console
 public class OptionsFragment extends Fragment
 	implements OnLayoutChangeListener,
 	OnClickListener, View.OnLongClickListener {
@@ -49,6 +49,7 @@ public class OptionsFragment extends Fragment
 	
 	private ConstraintLayout root = null;
 	
+	//Dependency Injection
 	@Inject ConsoleActivity consoleActivity;
 	@Inject OptionsViewModel viewModel;
 	@Inject @Named("mode") FloatingActionButton mode;
@@ -63,6 +64,7 @@ public class OptionsFragment extends Fragment
 			.build()
 			.inject(this);
 		
+		//set blurred background to root layout
 		Bitmap background;
 		Bundle args = getArguments();
 		if (args != null) {
@@ -79,6 +81,7 @@ public class OptionsFragment extends Fragment
 	
 	@Override
 	public void onLayoutChange(View view, int left, int top, int right, int bottom, int prevLeft, int prevTop, int prevRight, int prevBottom) {
+		//circular reveal when animation shows up
 		root.removeOnLayoutChangeListener(this);
 		Point center = new Point((right - left) / 2, (bottom - top) / 2);
 		Animator reveal = ViewAnimationUtils.createCircularReveal(root, center.x, center.y, 0, (int) Math.ceil(Statics.getHypotenuse(left, top, right, bottom)));
@@ -104,6 +107,7 @@ public class OptionsFragment extends Fragment
 	
 	@Override
 	public void onClick(View view) {
+		//launch appropriate activity on corresponding button click
 		switch (view.getId()) {
 			case R.id.root:
 				if (consoleActivity != null) consoleActivity.onBackPressed();
@@ -122,6 +126,7 @@ public class OptionsFragment extends Fragment
 	
 	@Override
 	public boolean onLongClick(View view) {
+		//Show toast on long click
 		String toast = null;
 		switch (view.getId()) {
 			case R.id.mode:

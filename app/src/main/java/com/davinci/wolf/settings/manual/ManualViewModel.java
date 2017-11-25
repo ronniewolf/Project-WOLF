@@ -14,6 +14,8 @@ import com.davinci.wolf.R;
 
 /**
  * Created by aakash on 11/18/17.
+ * View model is a listener to all views' event change
+ * and emits onChange whenever any one of it changes
  */
 public class ManualViewModel extends AndroidViewModel
 	implements OnSeekBarChangeListener, OnCheckedChangeListener {

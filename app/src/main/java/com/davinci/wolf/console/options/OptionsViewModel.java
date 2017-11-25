@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by aakash on 11/17/17.
+ * persists background bitmap throughout the lifecycle
  */
 public class OptionsViewModel extends AndroidViewModel {
 	private Bitmap background = null;

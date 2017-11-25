@@ -8,46 +8,24 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by aakash on 11/17/17.
+ * persists selected index throughout the ModeActivity lifecycle
  */
 public class ModeViewModel extends AndroidViewModel {
-	private final MutableLiveData<ModeData> eventEmitter = new MutableLiveData<>();
+	private final MutableLiveData<Integer> eventEmitter = new MutableLiveData<>();
 	
 	public ModeViewModel(@NonNull Application application) {
 		super(application);
-		eventEmitter.setValue(new ModeData());
+		eventEmitter.setValue(0);
 	}
 	
-	public LiveData<ModeData> getEventEmitter() {
+	public LiveData<Integer> getEventEmitter() {
 		return eventEmitter;
 	}
 	
-	public void setModeData(ModeData modeData) {
-		eventEmitter.setValue(modeData);
-	}
-	
 	void setMode(int mode) {
-		ModeData modeData = eventEmitter.getValue();
-		if (modeData == null) eventEmitter.setValue(new ModeData(mode, false));
-		else if (mode != modeData.selectedIndex)
-			eventEmitter.setValue(new ModeData(mode, modeData.shouldSave));
-	}
-	
-	void setShouldUpdate(boolean shouldUpdate) {
-		ModeData modeData = eventEmitter.getValue();
-		if (modeData == null) eventEmitter.setValue(new ModeData(0, shouldUpdate));
-		else if (shouldUpdate != modeData.shouldSave)
-			eventEmitter.setValue(new ModeData(modeData.selectedIndex, shouldUpdate));
-	}
-	
-	static class ModeData {
-		int selectedIndex = 0;
-		boolean shouldSave = false;
-		
-		ModeData() {}
-		
-		ModeData(int selectedIndex, boolean shouldSave) {
-			this.selectedIndex = selectedIndex;
-			this.shouldSave = shouldSave;
-		}
+		Integer selectedIndex = eventEmitter.getValue();
+		if (selectedIndex == null) eventEmitter.setValue(mode);
+		else if (mode != selectedIndex)
+			eventEmitter.setValue(mode);
 	}
 }

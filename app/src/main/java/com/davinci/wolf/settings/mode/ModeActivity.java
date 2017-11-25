@@ -11,26 +11,27 @@ import android.view.View.OnClickListener;
 
 import com.davinci.wolf.R;
 import com.davinci.wolf.application.WolfApplication;
-import com.davinci.wolf.settings.mode.ModeViewModel.ModeData;
 import com.davinci.wolf.settings.mode.di.ActivityModule;
 import com.davinci.wolf.settings.mode.di.DaggerModeComponent;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import timber.log.Timber;
+
+//Macro mode selection activity
 public class ModeActivity extends AppCompatActivity
-	implements OnClickListener, Observer<ModeData> {
+	implements OnClickListener, Observer<Integer> {
 	
+	//Dependency Injection
 	@Inject WolfApplication application;
 	@Inject ModeViewModel viewModel;
-	
 	@Inject @Named("commute") ModeTile commute;
 	@Inject @Named("tour") ModeTile tour;
 	@Inject @Named("race") ModeTile race;
 	@Inject @Named("offroad") ModeTile offroad;
 	
-	private ModeData modeData = null;
-	private int savedIndex = 0;
+	private int savedIndex = 0, selectedIndex = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class ModeActivity extends AppCompatActivity
 			.build()
 			.inject(this);
 		
-		viewModel.setModeData(new ModeData(savedIndex = application.getSavedMode(), false));
+		//initialize view model with saved data
+		viewModel.setMode(savedIndex = application.getSavedMode());
 	}
 	
 	@Override public void onBackPressed() {
@@ -53,22 +55,19 @@ public class ModeActivity extends AppCompatActivity
 	
 	@Override
 	public void onClick(View view) {
+		//set selected mode to
 		switch (view.getId()) {
 			case R.id.tileCommute:
 				viewModel.setMode(0);
-				viewModel.setShouldUpdate(savedIndex != 0);
 				break;
 			case R.id.tileTour:
 				viewModel.setMode(1);
-				viewModel.setShouldUpdate(savedIndex != 1);
 				break;
 			case R.id.tileRace:
 				viewModel.setMode(2);
-				viewModel.setShouldUpdate(savedIndex != 2);
 				break;
 			case R.id.tileOffroad:
 				viewModel.setMode(3);
-				viewModel.setShouldUpdate(savedIndex != 3);
 				break;
 			case R.id.done:
 				view.setVisibility(View.GONE);
@@ -79,46 +78,27 @@ public class ModeActivity extends AppCompatActivity
 	}
 	
 	@Override
-	public void onChanged(@Nullable ModeData modeData) {
-		if (modeData == null) return;
-		if (this.modeData == null || (this.modeData.selectedIndex != modeData.selectedIndex))
-			switch (modeData.selectedIndex) {
-				case 0:
-					commute.setSelected(true);
-					tour.setSelected(false);
-					race.setSelected(false);
-					offroad.setSelected(false);
-					break;
-				case 1:
-					commute.setSelected(false);
-					tour.setSelected(true);
-					race.setSelected(false);
-					offroad.setSelected(false);
-					break;
-				case 2:
-					commute.setSelected(false);
-					tour.setSelected(false);
-					race.setSelected(true);
-					offroad.setSelected(false);
-					break;
-				case 3:
-					commute.setSelected(false);
-					tour.setSelected(false);
-					race.setSelected(false);
-					offroad.setSelected(true);
-					break;
-			}
+	public void onChanged(@Nullable Integer selectedIndex) {
+		if (selectedIndex == null) return;
+		Timber.d(selectedIndex.toString());
+		commute.setSelected(selectedIndex == 0);
+		tour.setSelected(selectedIndex == 1);
+		race.setSelected(selectedIndex == 2);
+		offroad.setSelected(selectedIndex == 3);
+		//if savedIndex and selected index do not match we show the save button
+		boolean shouldSave = selectedIndex != this.savedIndex;
 		FloatingActionButton done = findViewById(R.id.done);
-		if (modeData.shouldSave && done.getVisibility() != View.VISIBLE)
+		//don't show if already visible
+		if (shouldSave && done.getVisibility() != View.VISIBLE)
 			done.setVisibility(View.VISIBLE);
-		if (!modeData.shouldSave && done.getVisibility() != View.GONE)
+		//don't hide if already hidden
+		if (!shouldSave && done.getVisibility() != View.GONE)
 			done.setVisibility(View.GONE);
-		
-		this.modeData = modeData;
+		this.selectedIndex = selectedIndex;
 	}
 	
 	private void saveAndFinish() {
-		if (modeData != null) application.setSavedMode(modeData.selectedIndex);
+		application.setSavedMode(selectedIndex);
 		setResult(RESULT_OK);
 		finish();
 		overridePendingTransition(R.anim.slidedown_enter, R.anim.slidedown_exit);

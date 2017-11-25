@@ -25,18 +25,28 @@ import static android.support.v4.content.ContextCompat.checkSelfPermission;
 
 /**
  * Created by aakash on 11/13/17.
+ * Convenience class to wrap all of google's api at a single place
+ * with only one listener
  */
 public class FusedLocationProvider extends LocationCallback
 	implements OnSuccessListener<Location>, OnCompleteListener<LocationSettingsResponse> {
 	
+	//parent activity required to ask for location provider changes
 	private ConsoleActivity activity = null;
 	
+	//actual client that is responsible to handle location request
 	private FusedLocationProviderClient client = null;
+	//the request parameter passed to the client
 	private LocationRequest request = null;
+	//Listener invoked when a location is available
 	private LocationChangedListener locationChangedListener = null;
 	
 	private boolean receivingUpdates = false;
 	
+	/**
+	 * @param activity: Parent activity, change to AppCompatActivity to make it generic
+	 * @param request: LocationRequest parameter passed to FusedLocationProviderClient
+	 */
 	public FusedLocationProvider(ConsoleActivity activity, LocationRequest request) {
 		client = new FusedLocationProviderClient(this.activity = activity);
 		this.request = request;
@@ -46,7 +56,9 @@ public class FusedLocationProvider extends LocationCallback
 		this.locationChangedListener = locationChangedListener;
 	}
 	
+	//asks location provider settings change
 	public void enableLocationService() {
+		//checks if location provider is in high accuracy state
 		if (activity.getPERMISSION_REQUEST_CODE() == -1)
 			LocationServices.getSettingsClient(activity)
 				.checkLocationSettings(new LocationSettingsRequest.Builder()
@@ -77,6 +89,7 @@ public class FusedLocationProvider extends LocationCallback
 		try {
 			task.getResult(ApiException.class);
 		} catch (ApiException e) {
+			//location provider is not in desired state, show system dialog to change that
 			switch (e.getStatusCode()) {
 				case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
 					try {
@@ -84,7 +97,8 @@ public class FusedLocationProvider extends LocationCallback
 						resolvable.startResolutionForResult(activity, activity.setPERMISSION_REQUEST_CODE());
 					} catch (Exception ex) {
 						ex.printStackTrace();
-						Toast.makeText(this.activity, "Please enable locations", Toast.LENGTH_LONG).show();
+						//user hasn't enable location so show the error message
+						Toast.makeText(activity, "Please enable locations", Toast.LENGTH_LONG).show();
 					}
 					break;
 			}

@@ -12,6 +12,8 @@ import com.davinci.wolf.R;
 
 /**
  * Created by aakash on 11/14/17.
+ * we don't intend to do anything with input text,
+ * so we directly set the value in view model instead
  */
 public class EditTextObserver
 	implements Observer<String>, TextWatcher {
@@ -20,6 +22,11 @@ public class EditTextObserver
 	private LoginViewModel loginViewModel = null;
 	private int id = -1;
 	
+	/**
+	 * Links the TextInputLayout to the corresponding text field in the view model
+	 * @param layout: a view in the layout
+	 * @param loginViewModel: view model to connect to
+	 */
 	public EditTextObserver(TextInputLayout layout, LoginViewModel loginViewModel) {
 		this.editText = (TextInputEditText) layout.getEditText();
 		this.loginViewModel = loginViewModel;

@@ -18,10 +18,11 @@ import com.davinci.wolf.settings.manual.di.ActivityModule;
 import com.davinci.wolf.settings.manual.di.DaggerManualComponent;
 
 import javax.inject.Inject;
-
+//Manual settings activity
 public class ManualActivity extends AppCompatActivity
 	implements Observer<ManualData>, OnClickListener {
 	
+	//Dependency Injection
 	@Inject WolfApplication application;
 	@Inject ManualViewModel viewModel;
 	
@@ -38,7 +39,9 @@ public class ManualActivity extends AppCompatActivity
 			.build()
 			.inject(this);
 		
+		//restore the view model with saved data
 		viewModel.setManualData(saved = application.getSavedManualData());
+		//change the ui to reflect saved data
 		init();
 	}
 	
@@ -50,6 +53,7 @@ public class ManualActivity extends AppCompatActivity
 	
 	@Override
 	public void onChanged(@Nullable ManualData manualData) {
+		//show the save button if the saved and changed don't match
 		findViewById(R.id.done).setVisibility(saved.notEqual(manualData) ? View.VISIBLE : View.GONE);
 		if (manualData == null) return;
 		((TextView) findViewById(R.id.transmissionLabel)).setText(getString(R.string.manual_label, getPercent(manualData.getTransmission(), 2)));
@@ -71,6 +75,7 @@ public class ManualActivity extends AppCompatActivity
 		((Switch) findViewById(R.id.abs)).setChecked(saved.getAbs());
 	}
 	
+	//we save the user settings and finish with animation
 	private void saveAndFinish() {
 		application.setSavedManualData(viewModel.getEventEmitter().getValue());
 		setResult(RESULT_OK);

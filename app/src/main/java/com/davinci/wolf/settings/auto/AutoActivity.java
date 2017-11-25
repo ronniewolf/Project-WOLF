@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.davinci.wolf.R;
-
+//Auto Settings Activity
 public class AutoActivity extends AppCompatActivity {
 	
 	private boolean backPressAllowed = false;

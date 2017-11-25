@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by aakash on 11/14/17.
+ * Persists the username text field and password text field
  */
 public class LoginViewModel extends AndroidViewModel {
 	private final MutableLiveData<String> username = new MutableLiveData<>();

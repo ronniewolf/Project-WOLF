@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by aakash on 11/13/17.
+ * Holds all static helper functions and constants
  */
 public class Statics {
 	public static final String PREF_HAS_LOGGED_IN = "loggedIn?";
@@ -41,7 +42,6 @@ public class Statics {
 	public static final String PREF_ABS = "abs";
 	
 	public static final String PREF_CONSOLE_SHOWN = "wasConsoleShown";
-	public static final String PREF_OPTIONS_SHOWN = "wasOptionsShown";
 	
 	public static final int ENABLE_LOCATION_RC = 1001;
 	public static final int LOGIN_RC = 1002;
@@ -140,6 +140,7 @@ public class Statics {
 		return Math.sqrt(cx * cx + cy * cy);
 	}
 	
+	//gets the screenshot of th view
 	public static Bitmap getScreenshot(View v) {
 		Bitmap b = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
 		Canvas c = new Canvas(b);
@@ -147,12 +148,14 @@ public class Statics {
 		return b;
 	}
 	
+	//overlays bitmap2 on bitmap1
 	public static Bitmap overlay(Bitmap bitmap1, Bitmap bitmap2) {
 		Canvas canvas = new Canvas(bitmap1);
 		canvas.drawBitmap(bitmap2, new Matrix(), null);
 		return bitmap1;
 	}
 	
+	//we only need onShowcaseDidHide function
 	public static class OnShowcaseGoneListener implements OnShowcaseEventListener {
 		@Override public void onShowcaseViewHide(ShowcaseView showcaseView) {}
 		

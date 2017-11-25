@@ -22,6 +22,7 @@ import static android.view.View.VISIBLE;
 public class LoginActivity extends AppCompatActivity
 	implements View.OnClickListener {
 	
+	//Dependency Injection
 	@Inject WolfApplication application;
 	@Inject @Named("username") EditTextObserver username;
 	@Inject @Named("password") EditTextObserver password;
@@ -47,11 +48,14 @@ public class LoginActivity extends AppCompatActivity
 	
 	@Override
 	public void onClick(View view) {
+		//shrink the login button and show a progress bar
+		//this is usually done in async task, not done here because this one's fake
 		new ViewAnimator(view, R.anim.shrink, 0)
 			.addAnimationListener(new ViewAnimator.AnimationListener() {
 				@Override public void onAnimationEnd(View v) {
 					v.setVisibility(INVISIBLE);
 					findViewById(R.id.progress).setVisibility(VISIBLE);
+					//hide the progress bar and finish this activity with positive result
 					new Handler()
 						.postDelayed(() -> {
 							if (application.setLoggedIn()) {

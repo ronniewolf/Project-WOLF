@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Created by aakash on 11/14/17.
+ * Convenience class to animate view
  */
 public class ViewAnimator implements Animation.AnimationListener {
 	private View view = null;
@@ -17,6 +18,11 @@ public class ViewAnimator implements Animation.AnimationListener {
 	
 	private final ArrayList<AnimationListener> animationListeners = new ArrayList<>();
 	
+	/**
+	 * @param view: view to animate
+	 * @param animID: anim resource id describing the animation
+	 * @param DELAY: delay of animation
+	 */
 	public ViewAnimator(View view, int animID, long DELAY) {
 		this.view = view;
 		this.DELAY = DELAY;
@@ -30,6 +36,8 @@ public class ViewAnimator implements Animation.AnimationListener {
 	}
 	
 	public void start() {
+		//native delay only delays the animation but but doesn't delay the listener
+		//hence a postDelayed is used
 		new Handler()
 			.postDelayed(() -> view.startAnimation(animation), DELAY);
 	}

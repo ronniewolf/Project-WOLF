@@ -16,6 +16,7 @@ import com.davinci.wolf.R;
 
 /**
  * Created by aakash on 9/28/17.
+ * Compound view encapsulating an image view and text view
  */
 public class ModeTile extends CardView
 	implements View.OnClickListener {
@@ -51,6 +52,7 @@ public class ModeTile extends CardView
 	
 	@Override
 	public void dispatchSetSelected(boolean selected) {
+		//we add accent color filter if the tile is selected
 		icon.setColorFilter(selected ? accent : Color.TRANSPARENT);
 	}
 	
