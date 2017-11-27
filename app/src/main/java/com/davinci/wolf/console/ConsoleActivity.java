@@ -252,14 +252,14 @@ public class ConsoleActivity extends AppCompatActivity
 	
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-		//reset requestCode
-		PERMISSION_REQUEST_CODE = -1;
-		viewModel.setHasChildActivities(false);
 		//location permission wasn't granted, show error toast and return
 		if (requestCode != PERMISSION_REQUEST_CODE || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
 			Toast.makeText(this, "Please provide location permissions", Toast.LENGTH_LONG).show();
 			return;
 		}
+		//reset requestCode
+		PERMISSION_REQUEST_CODE = -1;
+		viewModel.setHasChildActivities(false);
 		//if location provider is in high accuracy, we initialize googleMap
 		if (Statics.isLocationEnabled(this)) {
 			viewModel.setMapInitialized();
@@ -398,7 +398,7 @@ public class ConsoleActivity extends AppCompatActivity
 		//if we are not in search mode, we animate camera to that location
 		if (!consoleData.isInSearch())
 			googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Statics.parseLocation(searchAdapter.setCurrentLocation(location)),
-				consoleData.getNavigation() != null ? 20 : 15));
+				consoleData.getNavigation() != null ? 18 : 15));
 			//else we set search location in searchAdapter
 		else searchAdapter.setCurrentLocation(location);
 	}
@@ -640,7 +640,7 @@ public class ConsoleActivity extends AppCompatActivity
 	private void showConsole() {
 		viewModel.setInSearch(false);
 		googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Statics.parseLocation(searchAdapter.getCurrentLocation()),
-			consoleData.getNavigation() != null ? 20 : 15));
+			consoleData.getNavigation() != null ? 18 : 15));
 	}
 	
 	//mutates the layout with animation

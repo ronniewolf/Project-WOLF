@@ -31,7 +31,7 @@ public class ActivityModule {
 	@Provides @ManualActivityScope
 	ManualViewModel getViewModel(ManualActivity manualActivity) {
 		ManualViewModel viewModel = ViewModelProviders.of(manualActivity).get(ManualViewModel.class);
-		((SeekBar) manualActivity.findViewById(R.id.transmission)).setOnSeekBarChangeListener(viewModel);
+		((SeekBar) manualActivity.findViewById(R.id.traction)).setOnSeekBarChangeListener(viewModel);
 		((SeekBar) manualActivity.findViewById(R.id.shocks)).setOnSeekBarChangeListener(viewModel);
 		((Switch) manualActivity.findViewById(R.id.abs)).setOnCheckedChangeListener(viewModel);
 		viewModel.getEventEmitter().observe(manualActivity, manualActivity);

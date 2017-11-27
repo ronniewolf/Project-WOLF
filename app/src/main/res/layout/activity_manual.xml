@@ -9,17 +9,17 @@
     tools:context=".settings.manual.ManualActivity">
 
     <TextView
-        android:id="@+id/transmissionD"
+        android:id="@+id/tractionD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="@string/manual.transmission"
+        android:text="@string/manual.traction"
         android:textSize="@dimen/manual.textSize"
         app:layout_constraintStart_toStartOf="@+id/shocksD"
-        app:layout_constraintTop_toTopOf="@+id/transmission"/>
+        app:layout_constraintTop_toTopOf="@+id/traction"/>
 
     <SeekBar
-        android:id="@+id/transmission"
+        android:id="@+id/traction"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,21 +28,21 @@
         android:padding="8dp"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@+id/shocks"
-        app:layout_constraintEnd_toStartOf="@+id/transmissionLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tractionLabel"
         app:layout_constraintStart_toStartOf="@+id/shocks"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/transmissionLabel"
+        android:id="@+id/tractionLabel"
         android:layout_width="@dimen/manual.labelSize"
         android:layout_height="wrap_content"
         android:gravity="end|center_vertical"
         android:padding="8dp"
         android:text="@string/manual.label.default"
         android:textSize="@dimen/manual.textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/transmission"
+        app:layout_constraintBottom_toBottomOf="@+id/traction"
         app:layout_constraintEnd_toEndOf="@+id/shocksLabel"
-        app:layout_constraintTop_toTopOf="@+id/transmission"/>
+        app:layout_constraintTop_toTopOf="@+id/traction"/>
 
     <TextView
         android:id="@+id/shocksD"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toTopOf="@+id/abs"
         app:layout_constraintEnd_toStartOf="@+id/shocksLabel"
         app:layout_constraintStart_toEndOf="@+id/shocksD"
-        app:layout_constraintTop_toBottomOf="@+id/transmission"/>
+        app:layout_constraintTop_toBottomOf="@+id/traction"/>
 
     <TextView
         android:id="@+id/shocksLabel"

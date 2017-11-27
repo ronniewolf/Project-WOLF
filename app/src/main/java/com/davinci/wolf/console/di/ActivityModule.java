@@ -1,6 +1,7 @@
 package com.davinci.wolf.console.di;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.TextView;
 
 import com.davinci.wolf.R;
 import com.davinci.wolf.application.WolfApplication;
@@ -27,6 +28,8 @@ public class ActivityModule {
 		this.consoleActivity.findViewById(R.id.action).setOnLongClickListener(consoleActivity);
 		this.consoleActivity.findViewById(R.id.done).setOnLongClickListener(consoleActivity);
 		this.consoleActivity.findViewById(R.id.info).setOnLongClickListener(consoleActivity);
+		((TextView) this.consoleActivity.findViewById(R.id.speedo)).setText(R.string.console_speedo);
+		((TextView) this.consoleActivity.findViewById(R.id.odometer)).setText(this.consoleActivity.getString(R.string.console_extra, 1, 0));
 	}
 	
 	@Provides @ConsoleActivityScope

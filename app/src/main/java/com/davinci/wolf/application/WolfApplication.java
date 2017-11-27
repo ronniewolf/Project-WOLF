@@ -83,7 +83,7 @@ public class WolfApplication extends Application {
 	
 	//gets the ManualData from persistence to populate in ManualActivity
 	public ManualData getSavedManualData() {
-		return new ManualData(preferences.getInt(Statics.PREF_TRANS_LEVEL, 0),
+		return new ManualData(preferences.getInt(Statics.PREF_TRAC_LEVEL, 0),
 			preferences.getInt(Statics.PREF_SHOCKS_LEVEL, 0),
 			preferences.getBoolean(Statics.PREF_ABS, false));
 	}
@@ -91,7 +91,7 @@ public class WolfApplication extends Application {
 	//set changes in ManualData from ManualActivity to persistence
 	public void setSavedManualData(ManualData manualData) {
 		preferences.edit()
-			.putInt(Statics.PREF_TRANS_LEVEL, manualData.getTransmission())
+			.putInt(Statics.PREF_TRAC_LEVEL, manualData.getTransmission())
 			.putInt(Statics.PREF_SHOCKS_LEVEL, manualData.getShocks())
 			.putBoolean(Statics.PREF_ABS, manualData.getAbs())
 			.apply();

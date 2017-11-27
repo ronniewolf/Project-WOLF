@@ -56,7 +56,7 @@ public class ManualActivity extends AppCompatActivity
 		//show the save button if the saved and changed don't match
 		findViewById(R.id.done).setVisibility(saved.notEqual(manualData) ? View.VISIBLE : View.GONE);
 		if (manualData == null) return;
-		((TextView) findViewById(R.id.transmissionLabel)).setText(getString(R.string.manual_label, getPercent(manualData.getTransmission(), 2)));
+		((TextView) findViewById(R.id.tractionLabel)).setText(getString(R.string.manual_label, getPercent(manualData.getTransmission(), 2)));
 		((TextView) findViewById(R.id.shocksLabel)).setText(getString(R.string.manual_label, getPercent(manualData.getShocks(), 10)));
 	}
 	
@@ -73,8 +73,8 @@ public class ManualActivity extends AppCompatActivity
 	}
 	
 	private void init() {
-		((SeekBar) findViewById(R.id.transmission)).setProgress(saved.getTransmission());
-		((TextView) findViewById(R.id.transmissionLabel)).setText(getString(R.string.manual_label, getPercent(saved.getTransmission(), 2)));
+		((SeekBar) findViewById(R.id.traction)).setProgress(saved.getTransmission());
+		((TextView) findViewById(R.id.tractionLabel)).setText(getString(R.string.manual_label, getPercent(saved.getTransmission(), 2)));
 		((SeekBar) findViewById(R.id.shocks)).setProgress(saved.getShocks());
 		((TextView) findViewById(R.id.shocksLabel)).setText(getString(R.string.manual_label, getPercent(saved.getShocks(), 10)));
 		((Switch) findViewById(R.id.abs)).setChecked(saved.getAbs());

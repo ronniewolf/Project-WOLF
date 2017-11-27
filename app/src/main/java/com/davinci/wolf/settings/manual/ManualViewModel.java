@@ -55,7 +55,7 @@ public class ManualViewModel extends AndroidViewModel
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
 		switch (seekBar.getId()) {
-			case R.id.transmission:
+			case R.id.traction:
 				setTransmission(progress);
 				break;
 			case R.id.shocks:

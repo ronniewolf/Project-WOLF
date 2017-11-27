@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 public class Statics {
 	public static final String PREF_HAS_LOGGED_IN = "loggedIn?";
 	public static final String PREF_SEL_MODE = "selectedMode";
-	public static final String PREF_TRANS_LEVEL = "transmission";
+	public static final String PREF_TRAC_LEVEL = "traction";
 	public static final String PREF_SHOCKS_LEVEL = "shocks";
 	public static final String PREF_ABS = "abs";
 	
