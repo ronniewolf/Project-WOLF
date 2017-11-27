@@ -31,6 +31,12 @@ public class AutoActivity extends AppCompatActivity {
 		overridePendingTransition(R.anim.slidedown_enter, R.anim.slidedown_exit);
 	}
 	
+	@Override
+	public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+	}
+	
 	private void saveAndFinish() {
 		backPressAllowed = true;
 		setResult(RESULT_OK);

@@ -67,6 +67,11 @@ public class ManualActivity extends AppCompatActivity
 		new Handler().postDelayed(this::saveAndFinish, 1000);
 	}
 	
+	@Override public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+	}
+	
 	private void init() {
 		((SeekBar) findViewById(R.id.transmission)).setProgress(saved.getTransmission());
 		((TextView) findViewById(R.id.transmissionLabel)).setText(getString(R.string.manual_label, getPercent(saved.getTransmission(), 2)));

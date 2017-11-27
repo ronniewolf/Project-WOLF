@@ -53,6 +53,11 @@ public class ModeActivity extends AppCompatActivity
 		overridePendingTransition(R.anim.slidedown_enter, R.anim.slidedown_exit);
 	}
 	
+	@Override public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+	}
+	
 	@Override
 	public void onClick(View view) {
 		//set selected mode to

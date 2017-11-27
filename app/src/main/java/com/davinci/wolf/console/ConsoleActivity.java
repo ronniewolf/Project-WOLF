@@ -158,9 +158,9 @@ public class ConsoleActivity extends AppCompatActivity
 		if (application.isLoggedIn()) {
 			Reprint.initialize(this);
 			//Launch AuthenticationActivity if hwd present and user has'nt authenticated
-			if (Reprint.isHardwarePresent()) {
-				authenticate();
+			if (Reprint.isHardwarePresent() && !viewModel.isAuthenticated()) {
 				viewModel.setHasChildActivities(true);
+				authenticate();
 			} else getPermissions();//else we continue with asking necessary permissions
 		} else {
 			viewModel.setHasChildActivities(true);
@@ -203,13 +203,12 @@ public class ConsoleActivity extends AppCompatActivity
 		//if child activity was used to ask a permission,
 		// we reset it since it has served it's purpose
 		PERMISSION_REQUEST_CODE = -1;
-		viewModel.setHasChildActivities(false);
 		switch (requestCode) {
 			case LOGIN_RC:
 				if (resultCode == RESULT_OK)
 					//if login was successful and we have biometric hwd,
 					//we start AuthenticationActivity else we ask location permissions
-					if (Reprint.isHardwarePresent()) {
+					if (Reprint.isHardwarePresent() && !viewModel.isAuthenticated()) {
 						viewModel.setHasChildActivities(true);
 						authenticate();
 					} else getPermissions();
@@ -220,7 +219,7 @@ public class ConsoleActivity extends AppCompatActivity
 				//get location permissions
 				if (resultCode == RESULT_OK) {
 					getPermissions();
-					Toast.makeText(this, "RESULT: " + RESULT_OK, Toast.LENGTH_SHORT).show();
+					viewModel.setAuthenticated();
 				} else finish();//if authentication failed we exit
 				break;
 			case ENABLE_LOCATION_RC:
@@ -234,16 +233,19 @@ public class ConsoleActivity extends AppCompatActivity
 				//ModeActivity finished
 				if (resultCode == RESULT_OK)
 					Toast.makeText(this, "Mode calibration successful", Toast.LENGTH_SHORT).show();
+				locationProvider.startUpdates();
 				break;
 			case AUTO_RC:
 				//AutoActivity finished
 				if (resultCode == RESULT_OK)
 					Toast.makeText(this, "Smart calibration successful", Toast.LENGTH_SHORT).show();
+				locationProvider.startUpdates();
 				break;
 			case MANUAL_RC:
 				//ManualActivity finished
 				if (resultCode == RESULT_OK)
 					Toast.makeText(this, "Manual calibration successful", Toast.LENGTH_SHORT).show();
+				locationProvider.startUpdates();
 				break;
 		}
 	}

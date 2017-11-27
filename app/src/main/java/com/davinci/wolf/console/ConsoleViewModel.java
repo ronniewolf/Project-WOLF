@@ -31,7 +31,7 @@ public class ConsoleViewModel extends AndroidViewModel
 	//emits on change event if the data was mutated
 	private final MutableLiveData<ConsoleData> eventEmitter = new MutableLiveData<>();
 	//activity state variables
-	private boolean hasChildActivities = false, mapInitialized = false;
+	private boolean hasChildActivities = false, mapInitialized = false, isAuthenticated = false;
 	
 	public ConsoleViewModel(@NonNull Application application) {
 		super(application);
@@ -133,6 +133,14 @@ public class ConsoleViewModel extends AndroidViewModel
 	//set if map was initialized
 	void setMapInitialized() {
 		this.mapInitialized = true;
+	}
+	
+	boolean isAuthenticated() {
+		return isAuthenticated;
+	}
+	
+	void setAuthenticated() {
+		isAuthenticated = true;
 	}
 	
 	//set search text in the view model
