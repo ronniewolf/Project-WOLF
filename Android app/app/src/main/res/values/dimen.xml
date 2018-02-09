@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="compassTop">60dp</dimen>
+    <dimen name="compassEnd">12dp</dimen>
+    <dimen name="cameraMargin">32dp</dimen>
+    <dimen name="optionsSize">72dp</dimen>
+    <dimen name="mode.TextSize">8sp</dimen>
+    <dimen name="manual.textSize">24sp</dimen>
+    <dimen name="manual.labelSize">80dp</dimen>
+</resources>

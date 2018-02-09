@@ -1,0 +1,37 @@
+<resources>
+
+    <string name="loginTitle">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    <string name="fingerprintDescription">Scan the fingerprint sensor to unlock the vehicle</string>
+
+    <string name="app_name">Wolf</string>
+    <string name="console.speedo">00</string>
+    <string name="console.extra">%1$06d\nGear: %2$d</string>
+    <string name="searchHint">Enter destination or drop pin</string>
+    <string name="console.showcase.title">Console</string>
+    <string name="console.showcase.desc">All vital stats like speed, odometer, gear and fuel show up here.\nTouching it will show up tuning options</string>
+    <string name="search.showcase.title">Search</string>
+    <string name="search.showcase.desc">Search for locations to bring up live google map of your journey</string>
+
+    <string name="cancelNav">Cancel Navigation</string>
+    <string name="cancelNav.Description">Do you want to cancel current navigation?</string>
+
+    <string name="mode.commute">Commute</string>
+    <string name="mode.tour">Tour</string>
+    <string name="mode.race">Race</string>
+    <string name="mode.offroad">Off-Road</string>
+
+    <string name="auto.Description">Analysing topography of previous rides and calibrating your vehicle</string>
+
+    <string name="manual.traction">Traction</string>
+    <string name="manual.shockAbsorbers">Shock Absorbers</string>
+    <string name="manual.abs">ABS</string>
+    <string name="manual.label.default">0%</string>
+    <string name="manual.label">%1d%%</string>
+
+    <string name="about.author"><a href="https://github.com/aakashRajur">aakashRajur</a></string>
+    <string name="about.description">A motorcycle ecosystem project, first of its kind implemented through interlinked navigation system assisted by neural network that learns the deformities in the generalised mapped road and provides a visualization of the same to all of its users while unifying authentication interface for utmost security</string>
+</resources>
+    <!---->

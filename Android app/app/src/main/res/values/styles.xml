@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Showcase.Title">
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AppTheme.Showcase.Content">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.Showcase" parent="AppTheme">
+        <item name="sv_backgroundColor">#be2b2b2b</item>
+        <item name="sv_showcaseColor">#25467A</item>
+        <item name="sv_titleTextAppearance">@style/AppTheme.Showcase.Title</item>
+        <item name="sv_detailTextAppearance">@style/AppTheme.Showcase.Content</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+</resources>

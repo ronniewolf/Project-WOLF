@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".settings.manual.ManualActivity">
+
+    <TextView
+        android:id="@+id/tractionD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/manual.traction"
+        android:textSize="@dimen/manual.textSize"
+        app:layout_constraintStart_toStartOf="@+id/shocksD"
+        app:layout_constraintTop_toTopOf="@+id/traction"/>
+
+    <SeekBar
+        android:id="@+id/traction"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:max="2"
+        android:padding="8dp"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/shocks"
+        app:layout_constraintEnd_toStartOf="@+id/tractionLabel"
+        app:layout_constraintStart_toStartOf="@+id/shocks"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tractionLabel"
+        android:layout_width="@dimen/manual.labelSize"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:padding="8dp"
+        android:text="@string/manual.label.default"
+        android:textSize="@dimen/manual.textSize"
+        app:layout_constraintBottom_toBottomOf="@+id/traction"
+        app:layout_constraintEnd_toEndOf="@+id/shocksLabel"
+        app:layout_constraintTop_toTopOf="@+id/traction"/>
+
+    <TextView
+        android:id="@+id/shocksD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:padding="8dp"
+        android:text="@string/manual.shockAbsorbers"
+        android:textSize="@dimen/manual.textSize"
+        app:layout_constraintBottom_toBottomOf="@+id/shocks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shocks"/>
+
+    <SeekBar
+        android:id="@+id/shocks"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:max="10"
+        android:padding="8dp"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/abs"
+        app:layout_constraintEnd_toStartOf="@+id/shocksLabel"
+        app:layout_constraintStart_toEndOf="@+id/shocksD"
+        app:layout_constraintTop_toBottomOf="@+id/traction"/>
+
+    <TextView
+        android:id="@+id/shocksLabel"
+        android:layout_width="@dimen/manual.labelSize"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="end|center_vertical"
+        android:padding="8dp"
+        android:text="@string/manual.label.default"
+        android:textSize="@dimen/manual.textSize"
+        app:layout_constraintBottom_toBottomOf="@+id/shocks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shocks"/>
+
+    <Switch
+        android:id="@+id/abs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:padding="8dp"
+        android:text="@string/manual.abs"
+        android:textColor="#80000000"
+        android:textSize="@dimen/manual.textSize"
+        app:layout_constraintBottom_toTopOf="@+id/done"
+        app:layout_constraintEnd_toEndOf="@+id/shocksLabel"
+        app:layout_constraintStart_toStartOf="@+id/shocksD"
+        app:layout_constraintTop_toBottomOf="@+id/shocks"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:onClick="onClick"
+        android:src="@drawable/icon_check"
+        android:tint="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/abs"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/done"
+        app:layout_constraintEnd_toEndOf="@+id/done"
+        app:layout_constraintStart_toStartOf="@+id/done"
+        app:layout_constraintTop_toTopOf="@+id/done"/>
+
+</android.support.constraint.ConstraintLayout>

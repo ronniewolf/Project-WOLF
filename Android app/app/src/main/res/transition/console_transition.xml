@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="start">
+        <targets>
+            <target android:targetId="@id/back"/>
+        </targets>
+    </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="top">
+        <targets>
+            <target android:targetId="@id/searchWrapper"/>
+        </targets>
+    </slide>
+    <changeBounds
+        android:duration="@integer/transitionDuration">
+        <targets>
+            <target android:targetId="@id/action"/>
+        </targets>
+    </changeBounds>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="bottom">
+        <targets>
+            <target android:targetId="@id/done"/>
+        </targets>
+    </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="start">
+        <targets>
+            <target android:targetId="@id/console"/>
+        </targets>
+    </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="start">
+        <targets>
+            <target android:targetId="@id/speedo"/>
+        </targets>
+    </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="start">
+        <targets>
+            <target android:targetId="@id/odometer"/>
+        </targets>
+    </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="end">
+        <targets>
+            <target android:targetId="@id/info"/>
+        </targets>
+    </slide>
+</transitionSet>
