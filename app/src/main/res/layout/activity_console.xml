@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
@@ -16,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.richpath.RichPathView
         android:id="@+id/console"
@@ -30,41 +29,41 @@
         app:layout_constraintDimensionRatio="44:85"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:vector="@drawable/console"/>
+        app:vector="@drawable/console" />
 
     <TextView
         android:id="@+id/speedo"
         android:layout_width="wrap_content"
-        android:gravity="center"
-        android:textAlignment="gravity"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:elevation="16dp"
         android:fontFamily="@font/digital7"
+        android:gravity="center"
         android:text="@string/console.speedo"
+        android:textAlignment="gravity"
         android:textColor="@android:color/black"
         android:textSize="72sp"
         app:layout_constraintBottom_toTopOf="@+id/odometer"
         app:layout_constraintEnd_toEndOf="@+id/odometer"
         app:layout_constraintStart_toStartOf="@+id/odometer"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/odometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:elevation="16dp"
         android:fontFamily="@font/digital7"
         android:gravity="center"
-        android:layout_marginStart="8dp"
         android:text="@string/console.extra"
         android:textAlignment="gravity"
         android:textColor="@android:color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/speedo"/>
+        app:layout_constraintTop_toBottomOf="@+id/speedo" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/action"
@@ -81,7 +80,7 @@
         app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_search"/>
+        app:srcCompat="@drawable/icon_search" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/back"
@@ -98,7 +97,7 @@
         app:fabSize="mini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_left"/>
+        app:srcCompat="@drawable/icon_left" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/searchWrapper"
@@ -127,7 +126,7 @@
             android:hint="@string/searchHint"
             android:inputType="text"
             android:maxLines="1"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
     </android.support.v7.widget.CardView>
 
@@ -139,7 +138,7 @@
         android:layout_marginEnd="18dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/done"
@@ -154,7 +153,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_direction"/>
+        app:srcCompat="@drawable/icon_direction" />
 
     <FrameLayout
         android:id="@+id/container"
@@ -166,7 +165,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/info"
@@ -180,6 +179,20 @@
         app:borderWidth="0dp"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/openApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/actionButton"
+        android:src="@drawable/icon_heart"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/info"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -55,4 +55,11 @@
             <target android:targetId="@id/info"/>
         </targets>
     </slide>
+    <slide
+        android:duration="@integer/transitionDuration"
+        android:slideEdge="end">
+        <targets>
+            <target android:targetId="@id/openApp"/>
+        </targets>
+    </slide>
 </transitionSet>
