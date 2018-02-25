@@ -40,6 +40,7 @@ public class Statics {
 	public static final String PREF_TRAC_LEVEL = "traction";
 	public static final String PREF_SHOCKS_LEVEL = "shocks";
 	public static final String PREF_ABS = "abs";
+	public static final String PREF_SC = "speedCalibration";
 	
 	public static final String PREF_CONSOLE_SHOWN = "wasConsoleShown";
 	

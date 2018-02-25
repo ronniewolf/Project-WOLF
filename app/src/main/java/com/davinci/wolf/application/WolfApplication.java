@@ -16,6 +16,8 @@ import javax.inject.Inject;
 
 import timber.log.Timber;
 
+import static com.davinci.wolf.utils.Statics.PREF_SC;
+
 /**
  * Created by aakash on 11/13/17.
  */
@@ -105,5 +107,14 @@ public class WolfApplication extends Application {
 	//sets user has completed app walkthrough
 	public void setConsoleShowcased() {
 		preferences.edit().putBoolean(Statics.PREF_CONSOLE_SHOWN, true).apply();
+	}
+
+	public float getSpeedCalibration(){
+		return preferences.getFloat(PREF_SC, 1f);
+	}
+
+	public float setSpeedCalibration(float coefficient){
+		preferences.edit().putFloat(PREF_SC, coefficient).apply();
+		return coefficient;
 	}
 }

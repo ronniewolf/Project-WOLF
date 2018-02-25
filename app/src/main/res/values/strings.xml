@@ -33,5 +33,7 @@
 
     <string name="about.author"><a href="https://github.com/aakashRajur">aakashRajur</a></string>
     <string name="about.description">A motorcycle ecosystem project, first of its kind implemented through interlinked navigation system assisted by neural network that learns the deformities in the generalised mapped road and provides a visualization of the same to all of its users while unifying authentication interface for utmost security</string>
+    <string name="speed_calibration_title">GPS speed calibration</string>
+    <string name="calibration_hint">Speed Coefficient</string>
 </resources>
     <!---->

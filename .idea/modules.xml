@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Wolf.iml" filepath="$PROJECT_DIR$/Wolf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project-WOLF.iml" filepath="$PROJECT_DIR$/Project-WOLF.iml" />
+      <module fileurl="file://D:\Wolf\Project-WOLF\Wolf.iml" filepath="D:\Wolf\Project-WOLF\Wolf.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Wolf\Project-WOLF\app\app.iml" filepath="D:\Wolf\Project-WOLF\app\app.iml" />
     </modules>
   </component>
 </project>

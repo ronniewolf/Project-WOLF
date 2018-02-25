@@ -28,8 +28,10 @@ public class ActivityModule {
 		this.consoleActivity.findViewById(R.id.action).setOnLongClickListener(consoleActivity);
 		this.consoleActivity.findViewById(R.id.done).setOnLongClickListener(consoleActivity);
 		this.consoleActivity.findViewById(R.id.info).setOnLongClickListener(consoleActivity);
-		((TextView) this.consoleActivity.findViewById(R.id.speedo)).setText(R.string.console_speedo);
 		((TextView) this.consoleActivity.findViewById(R.id.odometer)).setText(this.consoleActivity.getString(R.string.console_extra, 1, 0));
+		TextView speedo = this.consoleActivity.findViewById(R.id.speedo);
+		speedo.setText(R.string.console_speedo);
+		speedo.setOnLongClickListener(consoleActivity);
 	}
 	
 	@Provides @ConsoleActivityScope
@@ -53,5 +55,10 @@ public class ActivityModule {
 	@Provides @ConsoleActivityScope
 	LocationProviderChangedListener getProviderChangedListener(ConsoleActivity consoleActivity) {
 		return new LocationProviderChangedListener(consoleActivity);
+	}
+
+	@Provides @ConsoleActivityScope
+	TextView getSpeedometer(){
+		return this.consoleActivity.findViewById(R.id.speedo);
 	}
 }
